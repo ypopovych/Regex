@@ -14,7 +14,7 @@
 //limitations under the License.
 //===----------------------------------------------------------------------===//
 
-#if os(Linux)
+#if os(OSX)
     import CIcuRegex
 #else
     import Foundation
@@ -33,7 +33,7 @@
         public typealias Generator = AnyGenerator<Match>
         /// A type that represents a subsequence of some of the elements.
         
-    #if os(Linux)
+    #if os(OSX)
         public func generate() -> Generator {
             return anyGenerator {
                 var ec = U_ZERO_ERROR

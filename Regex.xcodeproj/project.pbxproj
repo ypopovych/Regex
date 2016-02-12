@@ -228,6 +228,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 651655101C53AB2000B613AB /* Build configuration list for PBXNativeTarget "Regex-OSX" */;
 			buildPhases = (
+				9668F8361C6DFC50003E3F72 /* ShellScript */,
 				651654F71C53AB2000B613AB /* Sources */,
 				651654F81C53AB2000B613AB /* Frameworks */,
 				651654F91C53AB2000B613AB /* Headers */,
@@ -457,6 +458,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9668F8361C6DFC50003E3F72 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This script checks Carthage/Checkouts directory.\n# If directory empty - then we runned as dependency\n# for some another project.\n# We need make soft link to parent Checkouts directory\nset -e\n\nif [ -d \"${SRCROOT}/Carthage\"]; then\n    if [ ! -d \"${SRCROOT}/Carthage/Checkouts\"]; then\n        cd \"${SRCROOT}/Carthage\"\n        ln -s \"../../\" Checkouts\n    fi\nfi\n\nexit 0\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		651654F71C53AB2000B613AB /* Sources */ = {

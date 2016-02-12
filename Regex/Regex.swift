@@ -14,10 +14,7 @@
 //limitations under the License.
 //===----------------------------------------------------------------------===//
 
-//TODO: implement with PCRE
-//TODO: implement sintactic sugar operators
-
-#if os(Linux)
+#if os(OSX)
     import CIcuRegex
 #else
     import Foundation
@@ -64,7 +61,7 @@ public class Regex : RegexType {
         try self.init(pattern:pattern, groupNames:groupNames)
     }
     
-#if os(Linux)
+#if os(OSX)
     private static func compile(pattern:String) throws -> CompiledPattern {
         var ec = U_ZERO_ERROR
         let utext = try ICUText(string: pattern)

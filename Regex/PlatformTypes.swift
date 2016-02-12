@@ -14,7 +14,7 @@
 //limitations under the License.
 //===----------------------------------------------------------------------===//
 
-#if os(Linux)
+#if os(OSX)
     import CIcuRegex
     
     typealias CompiledMatchContext = CompiledPattern
